@@ -27,8 +27,8 @@ public class Exam1 {
   }
 
   @GetMapping("/test4")
-  public float test4() {
-    return 3.14f;   
+  public double test4() {
+    return 3.14;   
     // 부동소수점을 표현하는 방법
   }
 
