@@ -1,4 +1,4 @@
-// 
+// 리터럴: 정수 리터럴이 표현할 수 있는 값의 범위
 package com.eomcs.study.lang.literal;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,12 +37,14 @@ public class Exam3 {
 
   @GetMapping("/test5")
   public String test5() {
+    //  return "정수" + 932_0000_0000_0000_0000L; // 컴파일 오류 : 8바이트 메모리에 저장 불가
     return "정수" + 922_0000_0000_0000_0000L; 
 
   }
 
   @GetMapping("/test6")
   public String test6() {
+    //  return "정수" + -932_0000_0000_0000_0000L; // 컴파일 오류 : 8바이트 메모리에 저장 불가
     return "정수" + -922_0000_0000_0000_0000L; 
 
   }
