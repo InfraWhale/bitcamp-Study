@@ -25,12 +25,18 @@ public class Exam5 {
   @GetMapping("/test3")
   public String test3() {
     return "문자3: " + (char)0x41 + "," + (char)0xac00; // 문자 코드를 정수값으로 지정한다. 대신 문자 코드임을 표시해야 한다.
-
+    //    return "문자3: " + 0x41 + "," + 0xac00; // 65, 44042
   }
 
   @GetMapping("/test4")
   public String test4() {
     return "문자4: " + (char)65 + "," + (char)44032; // 문자 코드값은 그냥 정수값이다
+
+  }
+
+  @GetMapping("/test5")
+  public String test5() {
+    return "문자5: " + '\u4eba' + '\u00a9' + '\u03c0' + '\u03a3'; // 
 
   }
 
