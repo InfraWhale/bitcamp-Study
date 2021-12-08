@@ -23,6 +23,7 @@ xBtn.addEventListener("click", function() {
  xhr.onload = function() {
 	 // 서버에서 받은 JSON 형식의 배열을 자바스크립트 배열로 변환한다.
 	 var names = JSON.parse(xhr.responseText);
+	 
 	 for (var name of names) {
 		 var li = document.createElement("li");
 		 li.innerHTML = name;

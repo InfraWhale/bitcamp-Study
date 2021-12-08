@@ -4,6 +4,7 @@ package com.eomcs.lang.ex05;
 //
 public class Exam0410 {
   public static void main(String[] args) {
+    java.util.ArrayList arr;
     // << 비트 이동 연산자 사용법
     // - 왼쪽으로 비트를 이동시킨다.
     // - 오른 쪽 빈자리는 0으로 채운다.
