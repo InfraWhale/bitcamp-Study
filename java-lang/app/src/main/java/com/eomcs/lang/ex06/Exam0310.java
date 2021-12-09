@@ -23,7 +23,7 @@ public class Exam0310 {
     count = 0;
     while (count < 5)
       System.out.println(count++);
-    
+
 
     System.out.println("---------------------------");
 
@@ -37,9 +37,3 @@ public class Exam0310 {
     }
   }
 }
-
-
-
-
-
-

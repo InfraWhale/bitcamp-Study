@@ -11,7 +11,7 @@ public class Exam0331 {
     //      라벨: 문장;
     //      라벨: {문장1, 문장2, ...}
 
-    myloop:
+    myloop: // 라벨명은 내 마음대로
       while (x <= 9) {
 
         while (y <= 9) {
