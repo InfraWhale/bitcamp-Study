@@ -1,47 +1,55 @@
- <!DOCTYPE html>
- <html lang="en" dir="ltr">
-   <head>
-     <meta charset="utf-8">
-     <title>연락처</title>
-   </head>
-   <body>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>연락처</title>
+</head>
+<body>
+  <h1>연락처</h1>
+  <a href="form.html">새 연락처</a>
+<table id="x-contactTable" border="1">
+  <thead>
+    <tr>
+      <th>이름</th>
+      <th>이메일</th>
+      <th>전화</th>
+      <th>회사</th>
+    </tr>
+  </thead>
+  <tbody>
 
-    <h1>연락처</h1>
-<a href="form.html">새 연락처</a>
-    <table id="x-contact-tbl" border="1">
-      <thead>
-        <tr>
-          <th>이름</th>
-          <th>이메일</th>
-          <th>전화</th>
-          <th>회사</th>
-        </tr>
-      </thead>
+  </tbody>
 
-      <tbody>
+  </table>
 
-      </tbody>
-    </table>
 
-<script type="text/javascript">
-  var tbody = document.querySelector("#x-contact-tbl tbody");
+  <script type="text/javascript">
 
-fetch("/contact/list").then(function(response){
-  return response.json();
-}).then(function(arr){
-  for (var str of arr) {
-    console.log(str);
-    var contact = str.split(",");
-    var tr = document.createElement("tr");
-    tr.innerHTML = `<td><a href="view.html?email=${contact[1]}"> ${contact[0]} </a></td>
-    <td> ${contact[1]} </td>
-    <td> ${contact[2]} </td>
-    <td> ${contact[3]} </td>`;
-  	tbody.appendChild(tr);
-  }
-});
+  var tbody = document.querySelector("#x-contactTable tbody")
 
-</script>
+  fetch("/contact/list")
+  .then(function(response) {
+    // console.log(response.json());
+    return response.json(); // 서버서 받은 제이슨 형식 문자열을 가져와서 자바스크립트 객체로 바꿔라
+  })
+  .then(function(contacts){
+     console.log(contacts);
+    for (var contact of contacts) {
+      var values = contact.split(",");
+      var tr = document.createElement("tr");
+      tr.innerHTML = `<td><a href="view.html?email=${values[1]}">${values[0]}</a></td>
+      <td>${values[1]}</td>
+      <td>${values[2]}</td>
+      <td>${values[3]}</td>`;
+      tbody.appendChild(tr);
+   }
+ });
+  // .catch(function(error) {
+  //   alert("서버 실행 오류!")
+  //   console.log(error);
+  // });
 
-   </body>
- </html>
+
+  </script>
+</body>
+</html>
