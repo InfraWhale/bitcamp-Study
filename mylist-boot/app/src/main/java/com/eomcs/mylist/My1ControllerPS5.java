@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-public class My1Controller {
+public class My1ControllerPS5 {
 
   String[] contactsPS5 = new String[10];
   int noPS5 = 0;
@@ -74,8 +74,11 @@ public class My1Controller {
       return 1;
     }
     return 0;
+  }
 
-
+  @RequestMapping("/my1/countPS5")
+  public Object countPS5() {
+    return noPS5;
   }
 
 
