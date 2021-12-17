@@ -26,24 +26,23 @@ public class ContactController {
 
   @RequestMapping("/contact/get")
   public Object get(String email) {
-    for (int i = 0; i < size; i++) {
-      if (contacts[i].split(",")[1].equals(email)) { 
-        return contacts[i];
-      }
+    int index = indexOf(email);
+    if (index == -1) {
+      return "";
     }
-    return "";
+
+    return contacts[index];
   }
 
   @RequestMapping("/contact/update")
   public Object update(String name, String email, String tel, String company) {
-    for (int i = 0; i < size; i++) {
-      if (contacts[i].split(",")[1].equals(email)) { 
-        contacts[i] = createCSV(name, email, tel, company);
-        return 1;
-      }
+    int index = indexOf(email);
+    if (index == -1) {
+      return 0;
     }
 
-    return 0;
+    contacts[index] = createCSV(name, email, tel, company);
+    return 1;
   }
 
   @RequestMapping("/contact/delete")
@@ -65,5 +64,18 @@ public class ContactController {
   //
   String createCSV(String name, String email, String tel, String company) {
     return name + "," + email + "," + tel + "," + company;
+  }
+
+  // 기능:
+  // - 이메일로 연락처 정보를 찾는다.
+  // - 찾은 연락처의 배열 인덱스를 리턴한다.
+  //
+  int indexOf(String email) {
+    for (int i = 0; i < size; i++) {
+      if (contacts[i].split(",")[1].equals(email)) { 
+        return i;
+      }
+    }
+    return -1;
   }
 }

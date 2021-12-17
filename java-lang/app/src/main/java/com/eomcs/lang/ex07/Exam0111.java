@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class Exam0111 {
 
   static void printSpaces(int len) {
+    // 별 앞에 공백 출력
     int spaceCnt = 1;
     while (spaceCnt <= len) {
       System.out.print(" ");
