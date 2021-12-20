@@ -10,6 +10,9 @@ public class Exam0630 {
     // JVM의 전체 프로퍼티 목록 가져오기
     java.util.Properties props = System.getProperties();
 
+    System.out.println(props);
+    System.out.println("-------------------------------------");
+
     // 1) Properties 객체에 저장되어 있는 값의 이름(key)을 알아낸다.
     // => keySet() 이 리턴하는 것은 이름이 들어 있는 집합이다.
     java.util.Set keySet = props.keySet();
