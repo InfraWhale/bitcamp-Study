@@ -36,15 +36,6 @@ console.log(qs);
 var params = new URLSearchParams(qs);
 var email = params.get("email");
 
-// var email = null;
-// var values = qs.split("&");
-// for (var value of values) {
-//   if (value.startsWith("email=")) {
-//     email = value.split("=")[1];
-//     break;
-//   }
-// }
-
 if (email == null) {
   alert( "이메일값 없음");
   throw "파라미터 오류!";
@@ -59,16 +50,15 @@ var xCompany = document.querySelector("#x-company");
 // 3) 서버에서 가져온 데이터를 화면에 출력한다.
 fetch(`/contact/get?email=${email}`)
 .then(function(response){
-  return response.text();
+  return response.json();
 })
 .then(function(contact) {
-  var values = contact.split(",");
 
   // 4) 연락처 상세 정보 화면 출력
-  xName.value = values[0];
-  xEmail.value = values[1];
-  xTel.value = values[2];
-  xCompany.value = values[3];
+  xName.value = contact.name;
+  xEmail.value = contact.email;
+  xTel.value = contact.tel;
+  xCompany.value = contact.company;
 });
 
   document.querySelector("#x-update-btn").onclick = function() {
