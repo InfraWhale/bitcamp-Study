@@ -35,9 +35,11 @@ function closureMaker(fnType, count) {
 	}
 }
 
-console.log(closureMaker("sum", 10));
-closureMaker("factorial", 10);
+var fn1 = closureMaker("sum", 10);
+var fn2 = closureMaker("factorial", 10);
 
+fn1();
+fn2();
 
 </script>
 

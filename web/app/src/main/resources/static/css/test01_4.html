@@ -8,19 +8,26 @@
      CSS(Cascading Style Sheet)?
      => HTML UI 컴포넌트(=태그)의 모양을 제어할 때 사용하는 기술
   */
-  /* 실렉터(selector)?
+  /* 셀렉터(selector)?
     => 스타일 적용할 대상자를 지정하는 문법
    */
 
   /* 4) 대상자(태그명, 아이디, 분류명)의 상태를 지정하기
     => 의사 실렉터(pseudo selector)
     대상자:상태명 {스타일명:값; 스타일명:값; ...}
+    태그가 특정 상태에 놓일 때 지정
   */
-  
+
   /* :hover => 마우스 커서가 대상자 위에 있는 상태 */
 
-  li:hover { 
+  li:hover {
     border: 1px solid red;
+
+    /* vorder-width: 1px;
+    vorder-style: solid;
+    vorder-color: red; */
+/* 위 1줄은 아래 3줄과 같은 의미 */
+
     background-color: black;
     color: white;
     margin: 3px;
