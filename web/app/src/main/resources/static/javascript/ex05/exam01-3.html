@@ -20,18 +20,21 @@
 // getElementsByClassName("분류명")
 // => HTMLCollection 객체 리턴
 // => HTMLCollection은 배열이 아니다!
-//
+// => 찾지 못하더라도 HTMLCollection 객체를 리턴한다.
+
 var el = document.getElementsByClassName("g3");
+var el2 = document.getElementsByClassName("g4"); // 이 경우는 그냥 빈값 출력
 
 for (var e of el) {
     console.log(e.innerHTML);
 }
+console.log("----------------------1")
+for (var e of el2) {
+    console.log(e.innerHTML);
+}
+console.log("----------------------2")
+
 
 </script>
 </body>
 </html>
-
-
-
-
-
