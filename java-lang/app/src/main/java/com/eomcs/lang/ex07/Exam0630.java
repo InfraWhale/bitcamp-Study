@@ -11,11 +11,14 @@ public class Exam0630 {
     java.util.Properties props = System.getProperties();
 
     System.out.println(props);
-    System.out.println("-------------------------------------");
+    System.out.println("-------------------------------------1");
 
     // 1) Properties 객체에 저장되어 있는 값의 이름(key)을 알아낸다.
     // => keySet() 이 리턴하는 것은 이름이 들어 있는 집합이다.
     java.util.Set keySet = props.keySet();
+
+    System.out.println(keySet);
+    System.out.println("-------------------------------------2");
 
     // 이름이 들어 있는 집합에서 한 개의 이름을 가져와서 그 이름으로 저장된 값을 꺼낸다.
     // => 집합에서 꺼낸 이름이 실제는 String 타입이지만,
