@@ -45,7 +45,8 @@ console.log("f2() 생성자")
 
 
 function f2() {
-  f1.call(this); // 상위 생성자를 호출해야 한다. // f1()의 바디부분 호출
+  f1.call(this);
+  // 상위 생성자를 호출해야 한다. // f1()의 바디부분 호출
   this.email = "hong@test.com";
 }
 f2.prototype = Object.create(f1.prototype); // 이렇게 해줘야 얘의 상위 생성자가 f1이 됨
