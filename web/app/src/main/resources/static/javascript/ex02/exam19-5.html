@@ -29,10 +29,13 @@ obj.working = true;
 console.log("---------------------");
 
 var obj2 = new Map(); // Map으로 초기화시킨 객체는 iterable 객체이다.
+console.log(obj2);
 obj2.set("name", "홍길동");
 obj2.set("age", 20);
 obj2.set("tel", "1111-1111");
 obj2.set("working", true);
+
+console.log("---------------------");
 
 for (var x of obj2) {
   // x는 배열이다.
