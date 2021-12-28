@@ -42,7 +42,7 @@ public class TodoController {
       return 0; // 인덱스 무효해서 설정못함
     }
 
-    ArrayList2.list[index].done = done;
+    ((Todo)ArrayList2.list[index]).done = done; //여기에 괄호 씌움 원문 ArrayList2.list[index].done = done;
     return 1; // 해당 항목 상태 변경함
   }
 
