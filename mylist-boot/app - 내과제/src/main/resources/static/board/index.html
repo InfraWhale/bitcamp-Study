@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>게시판</title>
+</head>
+<body>
+  <h1>게시판</h1>
+  <button><a href="form.html">새 글 쓰기</a></button>
+<table id="x-boardTable" border="1">
+  <thead>
+    <tr>
+      <th>제목</th>
+      <th>내용</th>
+      <th>조회수</th>
+      <th>작성일</th>
+      <th>상세</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  </tbody>
+
+  </table>
+
+
+  <script type="text/javascript">
+
+  var tbody = document.querySelector("#x-boardTable tbody")
+
+  fetch("/board/list")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(boards){
+     console.log(boards);
+    // for (var board of boards) {
+    for (var i = 0; i < boards.length; i++) {
+      var tr = document.createElement("tr");
+      tr.setAttribute("data-no", i);
+      tr.innerHTML = `<td>${boards[i].title}</td>
+      <td>${boards[i].content}</td>
+      <td>${boards[i].viewCount}</td>
+      <td>${boards[i].createDate}</td>
+      <td><a href="view.html?title=${boards[i].title}">보기</a></td>`;
+      tbody.appendChild(tr);
+   }
+ });
+
+
+
+
+  </script>
+</body>
+</html>

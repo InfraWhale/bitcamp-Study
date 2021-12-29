@@ -2,16 +2,33 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>연락처</title>
+    <title>상세</title>
+    <style>
+
+    #x-title {
+      box-sizing: border-box;
+      border: solid 2px #1E90FF;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+
+  textarea {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: solid 2px #1E90FF;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+</style>
   </head>
   <body>
-    <h1>연락처 상세</h1>
+    <h1>상세</h1>
     <form>
-      이메일*: <input id="x-email" type="text" readonly><br>
-      이름*: <input id="x-name" type="text"><br>
-      전화*: <input id="x-tel" type="text"><br>
-      회사: <input id="x-company" type="text"><br>
-      별표(*) 항목은 필수입력입니다.<br>
+      제목: <input id="x-title" type="text" readonly><br>
+      내용: <textarea id="x-content" type="text"></textarea><br>
     <button id="x-update-btn" type="button">변경</button>
     <button id="x-delete-btn" type="button">삭제</button>
     <button id="x-cancel-btn" type="button">취소</button>
@@ -34,46 +51,53 @@ console.log(qs);
 
 // 2) 쿼리스트링에서  이메일 값 추출
 var params = new URLSearchParams(qs);
-var email = params.get("email");
+var title = params.get("title");
 
-if (email == null) {
-  alert( "이메일값 없음");
+if (title == null) {
+  alert( "제목 없음");
   throw "파라미터 오류!";
 };
-console.log(email);
+console.log(title);
 
-var xName = document.querySelector("#x-name");
-var xEmail = document.querySelector("#x-email");
-var xTel = document.querySelector("#x-tel");
-var xCompany = document.querySelector("#x-company");
+var today = new Date();
+var month = today.getMonth() + 1;  // 월
+var date = today.getDate();  // 날짜
+var hours = today.getHours(); // 시
+var minutes = today.getMinutes();  // 분
+
+var xTitle = document.querySelector("#x-title");
+var xContent = document.querySelector("#x-content");
+var xCreateDate = (month + '/' + date + ' ' + hours + ':' + minutes);
 
 // 3) 서버에서 가져온 데이터를 화면에 출력한다.
-fetch(`/contact/get?email=${email}`)
+fetch(`/board/get?title=${title}`)
 .then(function(response){
   return response.json();
 })
-.then(function(contact) {
+.then(function(board) {
 
   // 4) 연락처 상세 정보 화면 출력
-  xName.value = contact.name;
-  xEmail.value = contact.email;
-  xTel.value = contact.tel;
-  xCompany.value = contact.company;
+  xTitle.value = board.title;
+  xContent.value = board.content;
+  console.log(xTitle.value);
+  console.log(xContent.value);
+
+
 });
 
   document.querySelector("#x-update-btn").onclick = function() {
-    if (xName.value == "" || xTel.value == "") {
+    if (xTitle.value == "" || xContent.value == "") {
       window.alert("필수 입력 항목이 비어 있습니다.");
       return;
     };
 
-    fetch(`/contact/update?name=${xName.value}&email=${xEmail.value}&tel=${xTel.value}&company=${xCompany.value}`)
+    fetch(`/board/update?title=${xTitle.value}&content=${xContent.value}&createDate=${xCreateDate}`)
     .then(function(response){
       return response.text();
     })
     .then(function(text){
       console.log(text)
-      // location.href = "index.html";
+      location.href = "index.html";
     });
   };
 
@@ -82,7 +106,7 @@ document.querySelector("#x-cancel-btn").onclick = function () {
   };
 
 document.querySelector("#x-delete-btn").onclick = function () {
- fetch(`/contact/delete?email=${email}`)
+ fetch(`/board/delete?title=${title}`)
  .then(function(response){
    return response.json();
  })

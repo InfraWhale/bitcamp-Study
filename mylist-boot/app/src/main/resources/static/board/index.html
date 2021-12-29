@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>게시글</title>
+</head>
+<body>
+  <h1>게시글</h1>
+  <a href="form.html">새 게시글</a>
+<table id="x-contactTable" border="1">
+  <thead>
+    <tr>
+      <th>제목</th>
+      <th>조회수</th>
+      <th>등록일</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+  </table>
+
+  <script type="text/javascript">
+  var tbody = document.querySelector("#x-contactTable tbody")
+
+  fetch("/board/list")
+  .then(function(response) {
+    return response.json(); // 서버서 받은 제이슨 형식 문자열을 가져와서 자바스크립트 객체로 바꿔라
+  })
+  .then(function(boards){
+     console.log(boards);
+
+    for (var i = 0; i < boards.length; i++) {
+      var board = boards[i];
+      var tr = document.createElement("tr");
+      tr.innerHTML = `<td><a href="view.html?index=${i}">${board.title}</a></td>
+      <td>${board.viewCount}</td>
+      <td>${board.createDate}</td>`;
+      tbody.appendChild(tr);
+   }
+
+ });
+  // .catch(function(error) {
+  //   alert("서버 실행 오류!")
+  //   console.log(error);
+  // });
+
+
+  </script>
+</body>
+</html>
