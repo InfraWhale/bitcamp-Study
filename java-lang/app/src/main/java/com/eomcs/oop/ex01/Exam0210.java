@@ -16,6 +16,10 @@ public class Exam0210 {
       float aver;
     }
 
+    class A{}
+
+    class X{}
+
     // 2) 메모리 주소를 저장할 레퍼런스를 준비한다.
     Score s1, s2, s3;
 

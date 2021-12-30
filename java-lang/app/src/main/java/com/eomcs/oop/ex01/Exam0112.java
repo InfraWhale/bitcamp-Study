@@ -131,7 +131,10 @@ public class Exam0112 {
 //       s.name = "홍길동";
 //
 
+// Score s ;
+//s.name = "홍길동";
 
+// 이 경우 null point exception error
 
 
 
