@@ -7,7 +7,7 @@ public class Exam0610 {
 
     // 같은 패키지에 소속된 클래스 사용
     // - 공개, 비공개 상관없이 사용할 수 있다.
-    com.eomcs.oop.ex01.X obj1;
+    X obj1;
     com.eomcs.oop.ex01.Y obj2;
 
 
