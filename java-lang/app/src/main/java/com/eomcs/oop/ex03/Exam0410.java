@@ -27,7 +27,7 @@ public class Exam0410 {
     // => 다음과 파라미터가 없는 생성자가 기본 생성자이다.(default constructor)
     Score() {
       System.out.println("Score()");
-    }
+    } // 요건 생성자임
 
 
     public void compute() {
@@ -47,6 +47,8 @@ public class Exam0410 {
     //    Score s2 = new Score;
 
     Score s3 = new Score();
+
+    //    s3.Score(); // 생성자는 따로 호출할 수 없다.
   }
 }
 
