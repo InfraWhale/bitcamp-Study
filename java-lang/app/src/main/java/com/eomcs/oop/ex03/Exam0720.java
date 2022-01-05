@@ -27,6 +27,12 @@ public class Exam0720 {
       a = 200;
       System.out.println("A() 생성자 호출");
     }
+    //    public A() {
+    //      a = 100;
+    //      System.out.println("인스턴스 초기화 블록 실행!");
+    //      a = 200;
+    //      System.out.println("A() 생성자 호출");
+    //    } -> 이렇게 바뀐다.
   }
 
   public static void main(String[] args) {

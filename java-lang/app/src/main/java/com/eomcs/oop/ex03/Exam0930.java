@@ -42,7 +42,7 @@ public class Exam0930 {
     m1.display();
 
     // 물론 특정 속성의 값을 바꾼 후에 사용해도 된다.
-    m1.bright = 40;
+    m1.bright = 60;
 
     m1.display();
   }
