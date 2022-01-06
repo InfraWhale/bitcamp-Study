@@ -10,12 +10,12 @@ public class Exam0210 {
     char c = s1.charAt(1);
     System.out.println(c);
 
-    System.out.println(s1.compareTo("Helli"));
-    System.out.println(s1.compareTo("Hello"));
-    System.out.println(s1.compareTo("Hellq"));
+    System.out.println(s1.compareTo("Helli")); // 6 // 정렬했을때 6칸위
+    System.out.println(s1.compareTo("Hello")); // 0 // 정렬했을때 같은위치
+    System.out.println(s1.compareTo("Hellq")); // -2 // 정렬했을때 2칸 아래
 
-    System.out.println(s1.contains("ll"));
-    System.out.println(s1.contains("ee"));
+    System.out.println(s1.contains("ll")); // true
+    System.out.println(s1.contains("ee")); // false
 
     // 두 문자열을 연결하여 새 문자열을 만들자!
     String s2 = s1.concat(", world!");
