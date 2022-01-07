@@ -5,15 +5,15 @@
   <title>독서록</title>
 </head>
 <body>
-  <h1>독서목록</h1>
-  <a href="form.html">새 독서노트</a>
+  <h1>독서록</h1>
+  <a href="form.html">새 독서록</a>
 <table id="x-contactTable" border="1">
   <thead>
     <tr>
-      <th>제목</th>
+      <th>책</th>
       <th>저자</th>
       <th>출판사</th>
-      <th>가격</th>
+      <th>페이지</th>
     </tr>
   </thead>
   <tbody>
@@ -27,24 +27,20 @@
   .then(function(response) {
     return response.json(); // 서버서 받은 제이슨 형식 문자열을 가져와서 자바스크립트 객체로 바꿔라
   })
-  .then(function(boards){
-     console.log(boards);
+  .then(function(books){
+     console.log(books);
 
-    for (var i = 0; i < boards.length; i++) {
-      var board = boards[i];
+    for (var i = 0; i < books.length; i++) {
+      var book = books[i];
       var tr = document.createElement("tr");
-      tr.innerHTML = `<td><a href="view.html?index=${i}">${board.title}</a></td>
-      <td>${board.author}</td>
-      <td>${board.press}</td>
-      <td>${board.price}</td>`;
+      tr.innerHTML = `<td><a href="view.html?index=${i}">${book.title}</a></td>
+      <td>${book.author}</td>
+      <td>${book.press}</td>
+      <td>${book.page}</td>`;
       tbody.appendChild(tr);
    }
 
  });
-  // .catch(function(error) {
-  //   alert("서버 실행 오류!")
-  //   console.log(error);
-  // });
 
 
   </script>
