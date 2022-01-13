@@ -21,13 +21,13 @@ public class Car {
   // => 이 일 또한 AutowiredAnnotationBeanPostProcessor 객체가 처리한다.
   //
   public Car(Engine engine) {
-    System.out.println("Car(Engine)");
+    System.out.println("Truck(Engine)");
     this.engine = engine;
   }
 
   @Override
   public String toString() {
-    return "Car [model=" + model + ", maker=" + maker + ", cc=" + cc + ", auto=" + auto
+    return "Truck [model=" + model + ", maker=" + maker + ", cc=" + cc + ", auto=" + auto
         + ", createdDate=" + createdDate + ", engine=" + engine + "]";
   }
 
@@ -37,7 +37,7 @@ public class Car {
 
   //  @Autowired
   //  public void setEngine(Engine engine) {
-  //    System.out.println("Car.setEngine()");
+  //    System.out.println("Truck.setEngine()");
   //    this.engine = engine;
   //  }
 

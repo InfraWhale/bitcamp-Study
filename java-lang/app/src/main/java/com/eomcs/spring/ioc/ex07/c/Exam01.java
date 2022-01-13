@@ -14,7 +14,7 @@ public class Exam01 {
 
     // IoC 컨테이너는 application-context.xml 에 설정된 대로 다음과 같이 객체를 만든다.
     /*
-    Car c1 = new Car();
+    Truck c1 = new Truck();
     c1.setModel("티코");
     c1.setMaker("비트자동차");
     c1.setCc(Integer.valueOf("890"));

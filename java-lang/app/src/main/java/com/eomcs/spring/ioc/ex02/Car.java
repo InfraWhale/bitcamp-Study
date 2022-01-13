@@ -6,12 +6,12 @@ public class Car {
   int cc;
 
   public Car() {
-    System.out.println("Car() 생성자 호출됨!");
+    System.out.println("Truck() 생성자 호출됨!");
   }
 
   @Override
   public String toString() {
-    return "Car [model=" + model + ", maker=" + maker + ", cc=" + cc + "]";
+    return "Truck [model=" + model + ", maker=" + maker + ", cc=" + cc + "]";
   }
 
   public String getModel() {

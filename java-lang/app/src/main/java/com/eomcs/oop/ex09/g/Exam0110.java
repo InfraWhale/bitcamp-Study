@@ -4,7 +4,7 @@ package com.eomcs.oop.ex09.g;
 public class Exam0110 {
   public static void main(String[] args) {
 
-    Tico c1 = new Tico(); // Car 객체이면서 CarCheckInfo 로 사용할 수 있는 객체이다.
+    Tico c1 = new Tico(); // Truck 객체이면서 CarCheckInfo 로 사용할 수 있는 객체이다.
 
     // Tico가 직접 CarCheckInfo 를 구현한 것은 아니지만,
     // Tico의 수퍼 클래스가 구현했기 때문에 

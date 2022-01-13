@@ -70,7 +70,7 @@ public class Exam0222 {
         c.model, c.maker, c.cc, c.valve);
 
     // Exam0221이나
-    //   예) Car c2 = Car.create("티코");
+    //   예) Truck c2 = Truck.create("티코");
     //
     // Exam0222의 경우처럼,
     //   예) CarFactory factory = CarFactory.getInstance();

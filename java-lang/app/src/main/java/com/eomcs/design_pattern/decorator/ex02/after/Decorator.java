@@ -7,7 +7,7 @@ public abstract class Decorator extends Car {
   
   Car car;
   
-  // 비록 Car를 상속 받았지만 스스로 Car 일을 하지는 않는다.
+  // 비록 Car를 상속 받았지만 스스로 Truck 일을 하지는 않는다.
   // 단지 다른 자동차에 기능을 덧붙이다.
   // => 생성자에서 반드시 기능을 덧불일 대상이 되는 자동차를 받아야 한다.
   public Decorator(Car car) {

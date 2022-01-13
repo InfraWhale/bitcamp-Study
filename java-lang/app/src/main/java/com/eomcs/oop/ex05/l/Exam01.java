@@ -9,7 +9,7 @@ package com.eomcs.oop.ex05.l;
 //
 // Sedan과 Truck의 공통 기능인
 // start(), shutdown(), run() 메서드를 추출하여
-// Car 클래스를 만들고
+// Truck 클래스를 만들고
 // Sedan과 Truck은 이 클래스의 서브클래스가 된다.
 //
 // start()와 shutdown() 은
@@ -21,11 +21,11 @@ public class Exam01 {
     Sedan s = new Sedan();
     Truck t = new Truck();
     Car c = new Car();
-    // 사실 Car 클래스는 Sedan과 Truck에 공통으로 들어가는 코드를 
+    // 사실 Truck 클래스는 Sedan과 Truck에 공통으로 들어가는 코드를 
     // 좀 더 쉽게 관리하기 위해 추출하여 클래스로 만든 것이다.
     // 이렇게 직접 사용하려고 만든 클래스가 아니다.
     // 그럼에도 불구하고 위의 코드처럼 
-    // Car 클래스의 인스턴스를 만드는 것을 막을 수가 없다.
+    // Truck 클래스의 인스턴스를 만드는 것을 막을 수가 없다.
     // 이것을 막는 문법이 "추상클래스" 이다.
     // 다음 패키지의 예제를 확인하라!
   }

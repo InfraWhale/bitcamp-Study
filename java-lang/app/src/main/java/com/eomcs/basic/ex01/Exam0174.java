@@ -36,7 +36,7 @@ public class Exam0174 {
 
     @Override
     public String toString() {
-      return "Car [maker=" + maker + ", name=" + name + ", engine=" + engine + "]";
+      return "Truck [maker=" + maker + ", name=" + name + ", engine=" + engine + "]";
     }
 
     @Override

@@ -10,7 +10,7 @@ public class Exam01 {
     ApplicationContext iocContainer = new ClassPathXmlApplicationContext(
         "com/eomcs/spring/ioc/ex08/a/application-context.xml");
 
-    // Car 객체를 꺼내 Engine 객체가 주입되었는지 확인해보자!
+    // Truck 객체를 꺼내 Engine 객체가 주입되었는지 확인해보자!
     System.out.println(iocContainer.getBean("c1"));
   }
 

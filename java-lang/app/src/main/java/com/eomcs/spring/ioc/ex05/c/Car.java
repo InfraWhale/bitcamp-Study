@@ -10,7 +10,7 @@ public class Car {
 
   @Override
   public String toString() {
-    return "Car [model=" + model + ", maker=" + maker + ", cc=" + cc + ", options=" + options + "]";
+    return "Truck [model=" + model + ", maker=" + maker + ", cc=" + cc + ", options=" + options + "]";
   }
 
   public Map<String, Object> getOptions() {

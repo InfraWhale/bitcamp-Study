@@ -13,7 +13,7 @@ public class Car {
   Engine engine;
 
   public Car() {
-    System.out.println("Car()");
+    System.out.println("Truck()");
   }
 
   // IoC 컨테이너의 설정 파일(예:application-context.xml)에서 빈 생성 태그를 정의할 때 
@@ -21,12 +21,12 @@ public class Car {
   //        <bean ... init-method="init">
   // 
   public void init() {
-    System.out.println("Car.init()");
+    System.out.println("Truck.init()");
   }
 
   @Override
   public String toString() {
-    return "Car [model=" + model + ", maker=" + maker + ", cc=" + cc + ", auto=" + auto
+    return "Truck [model=" + model + ", maker=" + maker + ", cc=" + cc + ", auto=" + auto
         + ", createdDate=" + createdDate + ", engine=" + engine + "]";
   }
 
@@ -36,7 +36,7 @@ public class Car {
 
   @Autowired
   public void setEngine(Engine engine) {
-    System.out.println("Car.setEngine()");
+    System.out.println("Truck.setEngine()");
     this.engine = engine;
   }
 
@@ -45,7 +45,7 @@ public class Car {
   }
 
   public void setAuto(boolean auto) {
-    System.out.println("Car.setAuto()");
+    System.out.println("Truck.setAuto()");
     this.auto = auto;
   }
 
@@ -54,7 +54,7 @@ public class Car {
   }
 
   public void setCreatedDate(Date createdDate) {
-    System.out.println("Car.setCreatedDate()");
+    System.out.println("Truck.setCreatedDate()");
     this.createdDate = createdDate;
   }
 
@@ -63,7 +63,7 @@ public class Car {
   }
 
   public void setModel(String model) {
-    System.out.println("Car.setModel()");
+    System.out.println("Truck.setModel()");
     this.model = model;
   }
 
@@ -72,7 +72,7 @@ public class Car {
   }
 
   public void setMaker(String maker) {
-    System.out.println("Car.setMaker()");
+    System.out.println("Truck.setMaker()");
     this.maker = maker;
   }
 
@@ -81,7 +81,7 @@ public class Car {
   }
 
   public void setCc(int cc) {
-    System.out.println("Car.setCc()");
+    System.out.println("Truck.setCc()");
     this.cc = cc;
   }
 

@@ -7,7 +7,7 @@ public class Car {
 
   @Override
   public String toString() {
-    return "Car [maker=" + maker + ", model=" + model + ", cc=" + cc + "]";
+    return "Truck [maker=" + maker + ", model=" + model + ", cc=" + cc + "]";
   }
   public String getMaker() {
     return maker;

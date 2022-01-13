@@ -6,7 +6,7 @@ package com.eomcs.ioc.ex08;
 // => 이점?
 //    다양한 객체를 주입할 수 있다.
 //    즉 나중에 Engine의 새로운 서브 클래스가 등장했을 때 그 객체도 주입할 수 있다.
-// => Car 클래스는 경우 생성자에서 Engine 객체를 생성하기 때문에 
+// => Truck 클래스는 경우 생성자에서 Engine 객체를 생성하기 때문에 
 //    새로운 Engine의 서브 클래스가 만들어지더라도 사용할 수 없다.
 // 
 public class Exam12 {

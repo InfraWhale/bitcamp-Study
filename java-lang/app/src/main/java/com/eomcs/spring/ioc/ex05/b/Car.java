@@ -11,7 +11,7 @@ public class Car {
 
   @Override
   public String toString() {
-    return "Car [model=" + model + ", maker=" + maker + ", cc=" + cc + ", engine=" + engine
+    return "Truck [model=" + model + ", maker=" + maker + ", cc=" + cc + ", engine=" + engine
         + ", tires=" + tires + "]";
   }
 

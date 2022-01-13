@@ -21,13 +21,13 @@ public class Car {
   private Engine engine;
 
   public Car() {
-    System.out.println("Car()");
+    System.out.println("Truck()");
   }
 
 
   @Override
   public String toString() {
-    return "Car [model=" + model + ", maker=" + maker + ", cc=" + cc + ", auto=" + auto
+    return "Truck [model=" + model + ", maker=" + maker + ", cc=" + cc + ", auto=" + auto
         + ", createdDate=" + createdDate + ", engine=" + engine + "]";
   }
 
@@ -37,7 +37,7 @@ public class Car {
 
   //  @Autowired
   //  public void setEngine(Engine engine) {
-  //    System.out.println("Car.setEngine()");
+  //    System.out.println("Truck.setEngine()");
   //    this.engine = engine;
   //  }
 

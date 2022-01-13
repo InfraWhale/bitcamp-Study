@@ -65,8 +65,8 @@ class DumpTruckFactory2 extends TruckFactory {
   // => 컴파일 오류!
   //
   //  @Override
-  //  Car makeCar() {
-  //    return new Car();
+  //  Truck makeCar() {
+  //    return new Truck();
   //  };
 }
 

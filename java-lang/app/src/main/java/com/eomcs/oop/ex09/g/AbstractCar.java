@@ -29,7 +29,7 @@ public abstract class AbstractCar implements Car, CarCheckInfo {
     this.cc = cc;
   }
 
-  // Car 규칙에 따라 기능 구현
+  // Truck 규칙에 따라 기능 구현
   @Override
   public void start() {
     System.out.println("시동 건다!");
@@ -40,7 +40,7 @@ public abstract class AbstractCar implements Car, CarCheckInfo {
     System.out.println("시동 끈다!");
   }
 
-  // Car 인터페이스의 run() 메서드는 구현하지 않는다.
+  // Truck 인터페이스의 run() 메서드는 구현하지 않는다.
   // - 서브 클래스에게 구현을 맡긴다.
   // - 따라서 run() 메서드는 다음과 같이 추상 메서드로 남겨져 있다.
   // 

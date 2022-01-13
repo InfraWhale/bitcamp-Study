@@ -4,7 +4,7 @@ public class Car {
   Engine engine;
 
   public Car() {
-    System.out.println("===> Car()");
+    System.out.println("===> Truck()");
     this.engine = new Engine();
   }
 

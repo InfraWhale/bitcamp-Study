@@ -11,7 +11,7 @@ public class Exam13 {
     // 새 Engine을 준비한다.
     UltraEngine engine = new UltraEngine();
 
-    // Car 클래스는 Engine을 자체적으로 생성하여 사용하기 때문에 
+    // Truck 클래스는 Engine을 자체적으로 생성하여 사용하기 때문에 
     // 새로 만든 엔진을 꼽을 수가 없다.
     Car car = new Car(); // 기존의 Engine 객체 사용!
     car.move();
