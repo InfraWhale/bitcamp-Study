@@ -22,6 +22,7 @@ public class Exam0610 {
 
         // 파일,디렉토리 이름이 .java 로 끝나는 경우만 리턴 배열에 포함시키다.
         if (name.endsWith(".java"))
+          //        if (name.startsWith("h"))
           return true; // 조회 결과에 포함시켜라!
         return false; // 조회 결과에서 제외하라!
       }

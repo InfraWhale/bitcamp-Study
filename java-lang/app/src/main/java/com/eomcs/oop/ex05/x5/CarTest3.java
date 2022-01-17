@@ -8,7 +8,7 @@ public class CarTest3 {
     ElectricEngine electricOption = new ElectricEngine(sedan);
     electricOption.chargeBattery(100);
 
-    Trailer trailer = new Trailer(sedan);
+    Trailer trailer = new Trailer(electricOption);
     trailer.start();
     trailer.run();
     trailer.stop();
