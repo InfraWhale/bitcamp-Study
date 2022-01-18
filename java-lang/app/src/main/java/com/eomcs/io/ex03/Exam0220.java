@@ -22,7 +22,7 @@ public class Exam0220 {
     // => JVM의 문자코드표가 UTF-8이라면,
     //    파일을 읽을 때, 영어나 숫자, 특수기호는 1바이트를 읽어 UCS2으로 변환할 것이고
     //    한글은 3바이트를 읽어 UCS2으로 변환할 것이다.
-    int count = in.read(buf);
+    int count = in.read(buf); // 몇개 문자 읽었나 리턴
 
     // File(UTF-8)  JVM(UCS2)
     // 41       ==> 00 41
