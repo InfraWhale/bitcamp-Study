@@ -2,7 +2,7 @@ package com.eomcs.mylist.domain;
 
 import java.sql.Date;
 
-public class Book { // 독서록용
+public class Book implements java.io.Serializable{ // 독서록용
   String title;
   String author;
   String press;
