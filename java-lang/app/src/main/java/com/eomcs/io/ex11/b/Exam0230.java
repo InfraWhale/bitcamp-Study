@@ -3,17 +3,21 @@ package com.eomcs.io.ex11.b;
 
 public class Exam0230 {
 
-  static class Score {
-    String name;
-  }
+	static class Score {
+		String name;
+	}
 
-  public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception {
 
-    Score obj = new Score();
+		Score obj = new Score();
 
-    //        Score copy = obj.clone(); // 컴파일 오류!
-    // Object 클래스에서 상속 받은 clone()은 기본적으로 protected 이다.
-    // 따라서 외부에서 호출할 수 없다.
-  }
+		//        Score copy = obj.clone(); // 컴파일 오류!
+		// Object 클래스에서 상속 받은 clone()은 기본적으로 protected 이다.
+		// 따라서 외부에서 호출할 수 없다.
+	}
 
 }
+
+// 인스턴스 자체를 복제할 때
+
+// 새로만들 필요가 없음. 메서드만 호출하면 계속 복제할 수 있음.
