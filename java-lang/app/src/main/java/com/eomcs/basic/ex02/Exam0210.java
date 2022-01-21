@@ -32,7 +32,7 @@ public class Exam0210 {
 
 
     // Wrapper 클래스의 인스턴스를 생성할 때는 생성자 대신 클래스 메서드를 사용하라.
-    Byte b2 = Byte.valueOf((byte)100);
+    Byte b2 = Byte.valueOf((byte)100); // 100으로 적으면 4바이트 int 리터럴로 인식
     Short s2 = Short.valueOf((short)20000);
     Integer i2 = Integer.valueOf(3000000);
     Long l2 = Long.valueOf(60000000000L);
