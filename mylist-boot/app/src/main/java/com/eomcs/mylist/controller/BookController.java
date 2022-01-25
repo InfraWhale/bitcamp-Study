@@ -1,98 +1,49 @@
 package com.eomcs.mylist.controller;
 
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.ObjectOutputStream;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.eomcs.mylist.daoBook.BookDao;
 import com.eomcs.mylist.domain.Book;
-import com.eomcs.util.ArrayList;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController 
 public class BookController {
 
-	ArrayList bookList = new ArrayList();
+  @Autowired
+  BookDao bookDao;
 
-	public BookController() throws Exception {
-		System.out.println("BookController() 호출됨!");
+  @RequestMapping("/book/list")
+  public Object list() {
+    return bookDao.findAll(); 
+  }
 
-		try {
-			BufferedReader in = new BufferedReader(new FileReader("books.json"));
+  @RequestMapping("/book/add")
+  public Object add(Book book) throws Exception{
 
-			ObjectMapper mapper = new ObjectMapper();
-
-			//      String jsonStr = in.readLine();
-			//      Book[] books = mapper.readValue(jsonStr, Book[].class);
-			//      bookList = new ArrayList(books);
-
-			bookList = new ArrayList(mapper.readValue(in.readLine(), Book[].class));
-
-			in.close();
-
-		} catch (Exception e) {
-			System.out.println("독서록 데이터를 로딩하는 중 오류 발생!");
-		}
-	}
+    bookDao.insert(book);
+    return bookDao.countAll();
+  }
 
 
-	@RequestMapping("/book/list")
-	public Object list() {
-		return bookList.toArray(); 
-	}
+  @RequestMapping("/book/get")
+  public Object get(int index) throws Exception{
+    Book book = bookDao.findByNo(index);
+    if (book == null) {
+      return "";
+    }
+    return book;
+  }
 
-	@RequestMapping("/book/add")
-	public Object add(Book book) {
-		//		book.setCreateDate(new Date(System.currentTimeMillis()));
-		bookList.add(book);
-		return bookList.size();
-	}
+  @RequestMapping("/book/update")
+  public Object update(int index, Book book) throws Exception{
+    return bookDao.update(index, book);
+  }
 
-
-	@RequestMapping("/book/get")
-	public Object get(int index) {
-		if (index < 0 || index >= bookList.size()) {
-			return "";
-		}
-		Book book = (Book) bookList.get(index);
-		//		book.setViewCount(book.getViewCount() + 1);
-		return book;
-	}
-
-	@RequestMapping("/book/update")
-	public Object update(int index, Book book) {
-		if (index < 0 || index >= bookList.size()) {
-			return 0;
-		}
-
-		Book old = (Book) bookList.get(index);
-		//    board.viewCount = old.viewCount;
-		//    board.createDate = old.createDate;
-		//		book.setViewCount(old.getViewCount());
-		//		book.setCreateDate(old.getCreateDate());
-
-		return bookList.set(index, book) == null ? 0 : 1;
-	}
-
-	@RequestMapping("/book/delete")
-	public Object delete(int index) {
-		if (index < 0 || index >= bookList.size()) {
-			return 0;
-		}
-		return bookList.remove(index) == null ? 0 : 1;
-	}
-
-	@RequestMapping("/book/save")
-	public Object save() throws Exception {
-		ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("books.ser2")));
-		out.writeObject(bookList);
-		out.close();
-		return bookList.size();
-	}
-
+  @RequestMapping("/book/delete")
+  public Object delete(int index) throws Exception {
+    return bookDao.delete(index);
+  }
 
 }
+
+

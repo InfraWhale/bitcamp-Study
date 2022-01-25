@@ -9,7 +9,7 @@ public class Board implements java.io.Serializable{
   java.sql.Date createDate;
 
   public Board() {
-    System.out.println("B 호출됨 !");
+    System.out.println("Board() 호출됨 !");
   }
 
   public Board(String csvStr) {
