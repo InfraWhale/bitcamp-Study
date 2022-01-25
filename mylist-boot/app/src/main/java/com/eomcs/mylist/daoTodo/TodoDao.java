@@ -10,9 +10,11 @@ public interface TodoDao {
 
   void insert(Todo todo) throws Exception;
 
-  Todo findByNo(int no);
+  //  Todo findByNo(int no);
 
   int update(int no, Todo todo) throws Exception;
+
+  int check(int no, boolean done) throws Exception;
 
   int delete(int no) throws Exception;
 

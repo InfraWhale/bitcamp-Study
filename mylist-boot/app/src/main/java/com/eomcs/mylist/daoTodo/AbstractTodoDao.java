@@ -1,6 +1,5 @@
 package com.eomcs.mylist.daoTodo;
 
-import com.eomcs.mylist.domain.Book;
 import com.eomcs.mylist.domain.Todo;
 import com.eomcs.util.ArrayList;
 
@@ -26,30 +25,45 @@ public abstract class AbstractTodoDao implements TodoDao {
     save();
   }
 
-  @Override
-  public Book findByNo(int no) {
-    if (no < 0 || no >= bookList.size()) {
-      return null;
-    }
-    return (Book) bookList.get(no);
-  }
+  //  @Override
+  //  public Todo findByNo(int no) {
+  //    if (no < 0 || no >= todoList.size()) {
+  //      return null;
+  //    }
+  //    return (Todo) todoList.get(no);
+  //  }
 
   @Override
-  public int update(int no, Book book) throws Exception{
-    if (no < 0 || no >= bookList.size()) {
+  public int update(int no, Todo todo) throws Exception{
+    if (no < 0 || no >= todoList.size()) {
       return 0;
     }
-    bookList.set(no, book);
+
+    Todo old = (Todo) todoList.get(no);
+    todo.setDone (old.isDone());
+
+    todoList.set(no, todo);
     save();
     return 1;
   }
 
   @Override
+  public int check(int no, boolean done) throws Exception{
+    if (no < 0 || no >= todoList.size()) {
+      return 0;  // 인덱스가 무효해서 설정하지 못했다.
+    }
+
+    ((Todo) todoList.get(no)).setDone(done);
+    save();
+    return 1; // 해당 항목의 상태를 변경했다.
+  }
+
+  @Override
   public int delete(int no) throws Exception{
-    if (no < 0 || no >= bookList.size()) {
+    if (no < 0 || no >= todoList.size()) {
       return 0;
     }
-    bookList.remove(no);
+    todoList.remove(no);
     save();
     return 1;
   }
