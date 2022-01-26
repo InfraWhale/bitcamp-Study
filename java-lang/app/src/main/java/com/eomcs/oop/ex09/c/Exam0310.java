@@ -18,7 +18,8 @@ public class Exam0310 {
 		}
 	}
 
-	static class ProtocolImpl implements ProtocolA, ProtocolB {
+	static class Protocol
+	Impl implements ProtocolA, ProtocolB {
 		// ProtocolA 규칙 준수!
 		@Override
 		public void rule1() {
