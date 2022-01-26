@@ -16,12 +16,12 @@ abstract class A {
 
 public class Exam01 {
 
-  public static void main(String[] args) {
-    // 추상 클래스는 인스턴스를 생성할 수 없다.
-    //    A obj1 = new A(); // 컴파일 오류!
+	public static void main(String[] args) {
+		// 추상 클래스는 인스턴스를 생성할 수 없다.
+		//    A obj1 = new A(); // 컴파일 오류!
 
-    // 그러나 레퍼런스는 선언할 수 있다.
-    A obj2 = null;
-  }
+		// 그러나 레퍼런스는 선언할 수 있다.
+		A obj2 = null; // 서브클래스의 인스턴스 주소 받을때 보통 사용
+	}
 
 }
