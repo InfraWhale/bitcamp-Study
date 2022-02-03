@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class AppTest {
   @Test public void appHasAGreeting() {
-    App classUnderTest = new App();
-    //        assertNsotNull("app should shave a greeting", classUnderTest.getGreeting());
+    //    App classUnderTest = new App();
+    //    //        assertNsotNull("app should shave a greeting", classUnderTest.getGreeting());
   }
 }
