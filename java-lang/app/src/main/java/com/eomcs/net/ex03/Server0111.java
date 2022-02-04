@@ -12,7 +12,7 @@ public class Server0111 {
 
 
     try (Scanner keyboard = new Scanner(System.in);
-        ServerSocket serverSocket = new ServerSocket(8888)) {
+        ServerSocket serverSocket = new ServerSocket(8888)) { // 이 안엔 auto closeable 구현체만 가능
 
       System.out.println("클라이언트의 연결을 기다리고 있음.");
 
