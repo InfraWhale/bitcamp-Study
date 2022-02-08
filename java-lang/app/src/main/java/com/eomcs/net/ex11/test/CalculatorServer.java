@@ -86,11 +86,11 @@ public class CalculatorServer {
 
             switch(op) {
               case "+": out.printf("%d %s %d = %d\n", a, op, b, a + b); break;
-              case "-": out.printf("%d %s %d = %d/n", a, op, b, a - b); break;
-              case "*": out.printf("%d %s %d = %d/n", a, op, b, a * b); break;
-              case "/": out.printf("%d %s %d = %d/n", a, op, b, a / b); break;
-              case "%": out.printf("%d %s %d = %d/n", a, op, b, a % b); break;
-              default:   out.printf("%d %s %d = %s/n", a, op, b, "지원하지 않는 연산자");
+              case "-": out.printf("%d %s %d = %d\n", a, op, b, a - b); break;
+              case "*": out.printf("%d %s %d = %d\n", a, op, b, a * b); break;
+              case "/": out.printf("%d %s %d = %d\n", a, op, b, a / b); break;
+              case "%": out.printf("%d %s %d = %d\n", a, op, b, a % b); break;
+              default:   out.printf("%d %s %d = %s\n", a, op, b, "지원하지 않는 연산자");
             }
             out.flush();
 
