@@ -5,11 +5,13 @@ import java.io.PrintStream;
 import java.net.Socket;
 import java.util.Scanner;
 
+
 public class Client0110 {
   public static void main(String[] args) throws Exception {
     Socket socket = new Socket("localhost", 8888);
     System.out.println("서버에 연결됨!");
 
+    // 연결이 이루어진 후 데이터 입출력을 할 수 있다
     Scanner in = new Scanner(socket.getInputStream());
     PrintStream out = new PrintStream(socket.getOutputStream());
 
