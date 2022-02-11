@@ -7,6 +7,25 @@ public class Exam0210 {
     void print();
   }
 
+  class X {
+
+    public X() {
+      System.out.println("Hello!");
+    }
+
+    public X(int a) {
+      System.out.println("Hello!");
+    }
+
+    public X(String a) {
+      System.out.println("Hello!");
+    }
+
+    {
+      System.out.println("ABC#");
+    } 
+  }
+
   public static void main(final String[] args) {
 
     A obj = new A() {
