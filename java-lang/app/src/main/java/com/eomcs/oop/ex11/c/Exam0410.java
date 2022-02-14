@@ -11,7 +11,7 @@ import com.eomcs.oop.ex11.c.sub.M.Y;
 class D {
   class X {
     void test() {
-      System.out.println("test()");
+      System.out.println("Test()");
     }
   }
 }

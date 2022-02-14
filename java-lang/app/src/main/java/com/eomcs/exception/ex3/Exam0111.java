@@ -21,7 +21,7 @@ public class Exam0111 {
     // 즉시 현재 메서드의 실행을 멈추고 호출자에게 예외 처리를 위임한다.
 
     // 따라서 다음 출력 코드는 실행되지 않는다.
-    System.out.println("test() 호출됨!");
+    System.out.println("Test() 호출됨!");
   }
 
   public static void main(String[] args) {

@@ -14,8 +14,8 @@ public class Exam0220 {
     // 홍길동
     // 전화? 1111-2222
     // 1111-2222
-    // 이메일? hong@test.com
-    // hong@test.com
+    // 이메일? hong@Test.com
+    // hong@Test.com
     // 나이? 20
     // 20
     // 재직여부? y

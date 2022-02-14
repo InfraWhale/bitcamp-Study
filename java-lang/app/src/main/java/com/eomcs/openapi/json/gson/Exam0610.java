@@ -12,7 +12,7 @@ public class Exam0610 {
     Manager mgr = new Manager();
     mgr.setNo(101);
     mgr.setName("홍길동");
-    mgr.setEmail("hong@test.com");
+    mgr.setEmail("hong@Test.com");
     mgr.setRegisteredDate(new Date(System.currentTimeMillis()));
     mgr.setPosition("대리");
     mgr.setFax("02-1111-2222");
@@ -20,7 +20,7 @@ public class Exam0610 {
     Teacher teacher = new Teacher();
     teacher.setNo(103);
     teacher.setName("안창호");
-    teacher.setEmail("ahn@test.com");
+    teacher.setEmail("ahn@Test.com");
     teacher.setRegisteredDate(new Date(System.currentTimeMillis()));
     teacher.setMajor("컴퓨터공학");
     teacher.setHourPay(10000);

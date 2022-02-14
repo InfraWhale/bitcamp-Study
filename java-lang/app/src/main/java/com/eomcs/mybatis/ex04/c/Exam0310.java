@@ -27,10 +27,10 @@ public class Exam0310 {
 
     // 사례1)
     //    where 
-    //      <if test="title != null">
+    //      <if Test="title != null">
     //        title like concat('%', #{title}, '%')
     //      </if>
-    //      <if test="contents != null">
+    //      <if Test="contents != null">
     //        or contents like concat('%', #{contents}, '%')
     //      </if>
     //

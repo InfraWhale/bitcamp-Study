@@ -7,7 +7,7 @@ public class Exam0130 {
 	public static void main(String[] args) throws Exception {
 
 		// 1) JSON 문자열 준비
-		String jsonStr = "{\"no\":100,\"name\":\"홍길동\",\"email\":\"hong@test.com\",\"password\":\"1111\",\"photo\":\"hong.gif\",\"tel\":\"010-2222-1111\",\"registeredDate\":1642992895029}";
+		String jsonStr = "{\"no\":100,\"name\":\"홍길동\",\"email\":\"hong@Test.com\",\"password\":\"1111\",\"photo\":\"hong.gif\",\"tel\":\"010-2222-1111\",\"registeredDate\":1642992895029}";
 
 		// 2) JSON 처리 객체 준비
 		ObjectMapper mapper = new ObjectMapper();

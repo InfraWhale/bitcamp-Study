@@ -17,7 +17,7 @@ class E {
 
   static class X {
     void test() {
-      System.out.println("test()");
+      System.out.println("Test()");
     }
   }
 }

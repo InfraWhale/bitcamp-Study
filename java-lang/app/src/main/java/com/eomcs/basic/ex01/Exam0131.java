@@ -10,7 +10,7 @@ public class Exam0131 {
     obj1.name = "홍길동";
     obj1.age = 20;
     obj1.tel = "1111-1111";
-    obj1.email = "hong@test.com";
+    obj1.email = "hong@Test.com";
     obj1.gender = 1;
     obj1.working = false;
 
@@ -18,7 +18,7 @@ public class Exam0131 {
     obj2.name = "홍길동";
     obj2.age = 20;
     obj2.tel = "1111-1111";
-    obj2.email = "hong@test.com";
+    obj2.email = "hong@Test.com";
     obj2.gender = 1;
     obj2.working = false;
 

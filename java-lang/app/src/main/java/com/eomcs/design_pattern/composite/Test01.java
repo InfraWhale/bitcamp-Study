@@ -15,7 +15,7 @@ public class Test01 {
     
     root.add(new File("a.gif", "image/gif", 3456));
     root.add(new File("b.gif", "image/gif", 34530));
-    root.add(new File("test.txt", "text/plain", 8700));
+    root.add(new File("Test.txt", "text/plain", 8700));
 
     Directory src = new Directory("/src");
     src.add(new File("Hello.java", "text/java", 320));

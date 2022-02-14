@@ -6,7 +6,7 @@ public class Test2 {
     System.out.println(new Member()
         .setNo(1)
         .setName("홍길동2")
-        .setEmail("hong@test.com")
+        .setEmail("hong@Test.com")
         .setPassword("1111")
         .setAge(20)
         .setWork(true));

@@ -11,7 +11,7 @@ public class Exam0110 {
     Member m = new Member();
     m.setNo(100);
     m.setName("홍길동");
-    m.setEmail("hong@test.com");
+    m.setEmail("hong@Test.com");
     m.setPassword("1111");
     m.setPhoto("hong.gif");
     m.setTel("010-2222-1111");

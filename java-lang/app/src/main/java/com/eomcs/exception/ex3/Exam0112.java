@@ -18,7 +18,7 @@ public class Exam0112 {
     // 즉시 현재 메서드의 실행을 멈추고 호출자에게 예외 처리를 위임한다.
 
     // 따라서 다음 출력 코드는 실행되지 않는다.
-    System.out.println("test() 호출됨!");
+    System.out.println("Test() 호출됨!");
   }
 
   public static void main(String[] args) {
@@ -26,7 +26,7 @@ public class Exam0112 {
     // 애플리케이션 실행의 최후의 보루인 main()에서 예외를 처리하지 않는다면?
 
     test();
-    // 위와 같이 test()를 호출하는 main()에서 예외를 처리하지 않는다면,
+    // 위와 같이 Test()를 호출하는 main()에서 예외를 처리하지 않는다면,
     // 그 예외는 main()을 호출한 JVM에게 전달된다.
     // JVM이 예외를 받는다면 무조건 예외 정보를 출력한 후 프로그램을 종료한다.
 

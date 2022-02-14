@@ -34,7 +34,7 @@ public class Exam0120 {
       // => 예를 들어 이 예제를 실행할 때 다음과 같이 입력해 보라!
       // 번호? 1
       // 제목? okok
-      // 내용? test', view_count = 300, created_date = '2019-3-3
+      // 내용? Test', view_count = 300, created_date = '2019-3-3
       //
       int count = stmt.executeUpdate( 
           "update x_board set title = '" + title + 
@@ -44,7 +44,7 @@ public class Exam0120 {
       // 위에서 사용자가 입력한 값을 가지고 SQL 문장을 만들면 다음과 같다.
       //
       // update x_board set title = 'okok',
-      // contents = 'test', view_count = 300, created_date = '2019-3-3'
+      // contents = 'Test', view_count = 300, created_date = '2019-3-3'
       // where board_id = 1
       //
 

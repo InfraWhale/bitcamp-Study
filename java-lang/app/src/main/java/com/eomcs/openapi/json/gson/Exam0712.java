@@ -11,7 +11,7 @@ public class Exam0712 {
     Manager mgr = new Manager();
     mgr.setNo(101);
     mgr.setName("홍길동");
-    mgr.setEmail("hong@test.com");
+    mgr.setEmail("hong@Test.com");
     mgr.setRegisteredDate(new Date(System.currentTimeMillis()));
     mgr.setPosition("대리");
     mgr.setFax("02-1111-2222");

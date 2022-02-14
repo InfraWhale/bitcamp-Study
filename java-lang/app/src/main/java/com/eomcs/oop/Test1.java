@@ -6,7 +6,7 @@ public class Test1 {
     Member m = new Member();
     m.setNo(1);
     m.setName("홍길동");
-    m.setEmail("hong@test.com");
+    m.setEmail("hong@Test.com");
     m.setPassword("1111");
     m.setAge(20);
     m.setWork(true);

@@ -8,7 +8,7 @@ public class Exam0710_08 {
   public static void main(String[] args) throws Exception {
 
     // 결과 예)
-    // /Users/bitcamp/git/test
+    // /Users/bitcamp/git/Test
     // src/
     //   main/
     //     java/

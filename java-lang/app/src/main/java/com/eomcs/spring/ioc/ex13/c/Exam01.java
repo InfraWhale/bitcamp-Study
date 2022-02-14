@@ -15,7 +15,7 @@ public class Exam01 {
     try {
       Caller caller = iocContainer.getBean(Caller.class);
       caller.test();
-      // 실제 test()에서 호출하는 m1()은
+      // 실제 Test()에서 호출하는 m1()은
       // X의 프록시 객체에 정의되어 있는 m1()을 호출하는 것이다.
       //
       // X의 프록시 클래스가 다음과 같이 정의되었을 것으로 짐작할 수 있다.
