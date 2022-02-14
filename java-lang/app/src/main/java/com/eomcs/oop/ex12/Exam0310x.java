@@ -12,15 +12,9 @@ public class Exam0310x {
   }
 
   public static void main(String[] args) {
-    Player obj = new Player();
-    class MyPlayer implements Player {
-      @Override
-      public void play() {
-        System.out.println("실행!");
-      }
-    }
+    // 로컬 클래스
 
-    testPlayer(obj);
+    testPlayer(() -> System.out.println("실행!"));
 
   }
 }
