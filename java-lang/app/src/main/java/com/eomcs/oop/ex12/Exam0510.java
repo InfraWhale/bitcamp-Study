@@ -19,7 +19,7 @@ public class Exam0510 {
     // 메서드 한 개짜리 인터페이스의 구현체를 만들 때,
 
     // 1) 익명 클래스 활용
-    Calculator obj1 = new Calculator() {
+    Calculator obj1 = new Calculator() { // 그냥 생성자가 아니라 수퍼클래스의 생성자를 호출하는것!
       @Override
       public int compute(int x, int y) {
         return x * y;

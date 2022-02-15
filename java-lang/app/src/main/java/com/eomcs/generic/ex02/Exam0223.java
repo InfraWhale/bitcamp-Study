@@ -40,7 +40,8 @@ public class Exam0223 {
     //    m1(new ArrayList<A>()); // 컴파일 오류!
     m1(new ArrayList<B1>()); // OK!
     //    m1(new ArrayList<B2>()); // 컴파일 오류!
-    //    m1(new ArrayList<C>()); // 컴파일 오류!
+    //    m1(new ArrayList<C>()); // 컴파일 오류! // --- 레퍼런스에 객체를 넘길 때의 경우 
+    // 레퍼런스에서 지정한 타입과 인스턴스에서 지정한 타입이 다르다면 모순 발생
   }
 
   static void m1(ArrayList<B1> list) {
@@ -51,7 +52,7 @@ public class Exam0223 {
     //list.add(new A()); // 컴파일 오류!
     list.add(new B1());
     //list.add(new B2()); // 컴파일 오류!
-    list.add(new C());
+    list.add(new C()); // 일단 넘어가면 하위 클래스도 가능
 
     // list에 B1 타입이 아닌 다른 타입을 저장할 때는 아무런 문제가 발생하지 않았지만,
     // ArrayList에서 값을 꺼낼 때 메서드에서 지정한 <B1> 타입이 아니면 ClassCastException 발생!

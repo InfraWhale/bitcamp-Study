@@ -20,6 +20,10 @@ public class Exam0520 {
     public static int divide(int a, int b) {
       return a / b;
     }
+
+    //    public static int power(int a) {
+    //      return (int) Math.exp(a);
+    //    }
   }
 
   interface Calculator {
