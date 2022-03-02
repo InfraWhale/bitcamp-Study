@@ -252,3 +252,48 @@ from lect_appl la
         left outer join room r on l.rno=r.rno
         left outer join memb m2 on l.mno=m2.mno
         left outer join mgr mr on l.mno=mr.mno;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        coalesce(r.name, '') room_name,
+        coalesce(m2.name, '') manager_name
+
+        select
+        la.lano,
+        /*date_format(la.rdt, '%Y-%m-%d') reg_date,*/
+        to_char(la.rdt, 'YYYY-MM-DD') reg_date,
+        l.titl,
+        m.name student_name,
+        s.work,
+        ifnull(r.name, '') room_name,
+        ifnull(m2.name, '') manager_name,
+        ifnull(mr.posi, '') manager_posi
+        from lect_appl la
+        inner join lect l on la.lno=l.lno
+        inner join memb m on la.mno=m.mno
+        inner join stnt s on la.mno=s.mno
+        left outer join room r on l.rno=r.rno
+        left outer join memb m2 on l.mno=m2.mno
+        left outer join mgr mr on l.mno=mr.mno;
+
+        select
+        la.lano,
+        (select titl from lect where lno=la.lno) lect_title,
+        (select name from memb where mno=la.mno) memb_name,
+        (select work from stnt where mno=la.mno) memb_work,
+        to_char(la.rdt, 'YYYY-MM-DD') reg_date,
+        ifnull((select name from room where rno=(select rno from lect where lno=la.lno)),'') room_name,
+        ifnull((select name from memb where mno=(select mno from lect where lno=la.lno)),'') mgr_name,
+        ifnull((select posi from mgr where mno=(select mno from lect where lno=la.lno)),'') mgr_posi
+        from lect_appl la;
