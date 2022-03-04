@@ -21,8 +21,9 @@ public class Exam0210 {
       //  예) jdbc:DBMS://서버주소:포트/데이터베이스명
       //      (포트번호를 지정하지 않으면 기본이 3306 이다.)
       // username : DBMS 사용자 아이디
-      // password : DBMS 사용자 암호
-      //
+      // password : DBMS 사용자 암호 
+      // @@@ 이 문단 전부 필기 변경
+
       con = DriverManager.getConnection(
           "jdbc:mariadb://localhost:3306/studydb", // jdbcURL
           "study", // username
