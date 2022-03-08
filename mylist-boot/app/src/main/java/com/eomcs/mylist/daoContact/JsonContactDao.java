@@ -1,6 +1,7 @@
 package com.eomcs.mylist.daoContact;
 
 import java.io.File;
+import java.util.List;
 import org.springframework.stereotype.Repository;
 import com.eomcs.mylist.domain.Contact;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,7 +16,8 @@ public class JsonContactDao extends AbstractContactDao {
 
     try {
       ObjectMapper mapper = new ObjectMapper();
-      contactList.addAll(mapper.readValue(new File(filename), Contact[].class));
+      contactList.addAll(mapper.readValue(new File(filename),
+          mapper.getTypeFactory().constructCollectionType(List.class, Contact.class)));
 
     } catch (Exception e) {
       System.out.println("게시글 데이터 로딩 중 오류 발생!");

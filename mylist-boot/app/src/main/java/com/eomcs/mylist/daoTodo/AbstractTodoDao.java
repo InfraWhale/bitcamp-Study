@@ -1,11 +1,11 @@
 package com.eomcs.mylist.daoTodo;
 
+import java.util.ArrayList;
 import com.eomcs.mylist.domain.Todo;
-import com.eomcs.util.ArrayList;
 
 public abstract class AbstractTodoDao implements TodoDao {
 
-  protected ArrayList todoList = new ArrayList();
+  protected ArrayList<Todo> todoList = new ArrayList<>();
 
   protected abstract void save() throws Exception;
 
@@ -39,7 +39,7 @@ public abstract class AbstractTodoDao implements TodoDao {
       return 0;
     }
 
-    Todo old = (Todo) todoList.get(no);
+    Todo old = todoList.get(no);
     todo.setDone (old.isDone());
 
     todoList.set(no, todo);
@@ -53,7 +53,7 @@ public abstract class AbstractTodoDao implements TodoDao {
       return 0;  // 인덱스가 무효해서 설정하지 못했다.
     }
 
-    ((Todo) todoList.get(no)).setDone(done);
+    todoList.get(no).setDone(done);
     save();
     return 1; // 해당 항목의 상태를 변경했다.
   }
