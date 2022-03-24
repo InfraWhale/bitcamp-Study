@@ -12,20 +12,21 @@
   */
   body {
     border: 10px solid blue;
+    margin: 0px;
     padding: 0px;
   }
   
-  div {
+  div { /* 블럭 태그 - 너비 높이 가능 */
     margin: 10px;
     border: 2px solid gray;
   }
 
-  a {
+  a { 
     border: 1px solid red;
-    margin: 10px;
+    xmargin: 10px; /* 위아래 마진 안먹힘 */
     height: 30px;
     width: 120px;
-    display: inline-block;
+    display:inline- block;
   }
 
   #linkbar {
@@ -33,7 +34,7 @@
     border-color: green;
   }
 
-  #content {
+  #xcontent {
     margin-top: 20px;
     border-width: 10px;
     border-style: dashed;

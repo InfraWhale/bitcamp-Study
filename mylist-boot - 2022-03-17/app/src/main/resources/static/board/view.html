@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>게시글</title>
+  </head>
+  <body>
+
+    <h1>게시글 상세</h1>
+
+    <form>
+      번호: <input id="x-no" type="text" readonly><br>
+      제목*: <input id="x-title" type="text"><br>
+      내용*: <textarea id="x-content" cols="60" rows="10"></textarea><br>
+      조회수: <span id="x-viewCount"></span><br>       <!-- // span : 처음엔 화면엔 영향 안끼치지만 나중에 여기 텍스트를 넣을수도 있음. -->
+      등록일: <span id="x-createdDate"></span><br>
+      별표(*) 항목은 필수입력입니다.<br>
+    <button id="x-update-btn" type="button">변경</button>
+    <button id="x-delete-btn" type="button">삭제</button>
+    <button id="x-cancel-btn" type="button">취소</button>
+    </form>
+
+<script type="text/javascript">
+
+// 1) URL에서 쿼리스트링을 추출한다.
+var arr = location.href.split("?");
+console.log(arr);
+
+if (arr.length == 1) {
+  alert("요청 형식이 올바르지 않습니다.")
+  throw "URL 형식 오류!";
+};
+
+var qs = arr[1];
+console.log(qs);
+
+// 2) 쿼리스트링에서  이메일 값 추출
+var params = new URLSearchParams(qs);
+var no = params.get("no");
+
+if (no == null) {
+  alert( "게시물 번호 없음");
+  throw "파라미터 오류!";
+};
+console.log(no);
+
+var xNo = document.querySelector("#x-no");
+var xTitle = document.querySelector("#x-title");
+var xContent = document.querySelector("#x-content");
+var xViewCount = document.querySelector("#x-viewCount");
+var xCreateDate = document.querySelector("#x-createdDate");
+
+// 3) 서버에서 가져온 데이터를 화면에 출력한다.
+fetch(`/board/get?no=${no}`)
+.then(function(response){
+  return response.json();
+})
+.then(function(board) {
+
+  // 4) 연락처 상세 정보 화면 출력
+  xNo.value = board.no;
+  xTitle.value = board.title;
+  xContent.value = board.content;
+  xViewCount.innerHTML = board.viewCount; // 이건 스팬태그임!
+  xCreateDate.innerHTML = board.createdDate;// 이건 스팬태그임!
+});
+
+  document.querySelector("#x-update-btn").onclick = function() {
+    if (xTitle.value == "" || xContent.value == "") {
+      window.alert("필수 입력 항목이 비어 있습니다.");
+      return;
+    };
+
+    fetch(`/board/update?no=${no}&title=${xTitle.value}&content=${xContent.value}`)
+    .then(function(response){
+      return response.text();
+    })
+    .then(function(text){
+      console.log(text)
+      location.href = "index.html";
+    });
+  };
+
+document.querySelector("#x-cancel-btn").onclick = function () {
+    window.location.href = "index.html";
+  };
+
+document.querySelector("#x-delete-btn").onclick = function () {
+ fetch(`/board/delete?no=${no}`)
+ .then(function(response){
+   return response.json();
+ })
+ .then(function(result){
+   console.log(result);
+   location.href = "index.html";
+ });
+};
+
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>새 글 작성</title>
+    <style>
+
+    #x-title {
+      box-sizing: border-box;
+      border: solid 2px #1E90FF;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+
+  textarea {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: solid 2px #1E90FF;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+</style>
+  </head>
+  <body>
+    <h1>새 글쓰기</h1>
+    <form>
+      제목: <input id="x-title" type="text"><br>
+      내용: <textarea id="x-content" type="text"></textarea><br>
+    <button id="x-add-btn" type="button">등록</button>
+    <button id="x-cancel-btn" type="button">취소</button>
+    </form>
+  </body>
+
+<script type="text/javascript">
+
+  var today = new Date();
+  var month = today.getMonth() + 1;  // 월
+  var date = today.getDate();  // 날짜
+  var hours = today.getHours(); // 시
+  var minutes = today.getMinutes();  // 분
+
+  var xTitle = document.querySelector("#x-title");
+  var xContent = document.querySelector("#x-content");
+  var xCreateDate = (month + '/' + date + ' ' + hours + ':' + minutes);
+
+  document.querySelector("#x-add-btn").onclick = function() {
+    console.log(xCreateDate)
+    if (xTitle.value == "" || xContent.value == "") {
+      window.alert("필수 입력 항목이 비어 있습니다.");
+      return;
+    }
+
+    fetch(`/board/add?title=${xTitle.value}&content=${xContent.value}&createDate=${xCreateDate}`)
+    .then(function(response){
+      return response.text();
+    })
+    .then(function(text){
+      console.log(text)
+      location.href = "index.html";
+    });
+  };
+
+document.querySelector("#x-cancel-btn").onclick = function () {
+    window.location.href = "index.html";
+  }
+</script>
+
+</html>

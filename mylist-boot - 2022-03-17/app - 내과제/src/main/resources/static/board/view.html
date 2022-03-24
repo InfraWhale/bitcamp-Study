@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>상세</title>
+    <style>
+
+    #x-title {
+      box-sizing: border-box;
+      border: solid 2px #1E90FF;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+
+  textarea {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: solid 2px #1E90FF;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+</style>
+  </head>
+  <body>
+    <h1>상세</h1>
+    <form>
+      제목: <input id="x-title" type="text" readonly><br>
+      내용: <textarea id="x-content" type="text"></textarea><br>
+    <button id="x-update-btn" type="button">변경</button>
+    <button id="x-delete-btn" type="button">삭제</button>
+    <button id="x-cancel-btn" type="button">취소</button>
+    </form>
+
+
+<script type="text/javascript">
+
+// 1) URL에서 쿼리스트링을 추출한다.
+var arr = location.href.split("?");
+console.log(arr);
+
+if (arr.length == 1) {
+  alert("요청 형식이 올바르지 않습니다.")
+  throw "URL 형식 오류!";
+};
+
+var qs = arr[1];
+console.log(qs);
+
+// 2) 쿼리스트링에서  이메일 값 추출
+var params = new URLSearchParams(qs);
+var title = params.get("title");
+
+if (title == null) {
+  alert( "제목 없음");
+  throw "파라미터 오류!";
+};
+console.log(title);
+
+var today = new Date();
+var month = today.getMonth() + 1;  // 월
+var date = today.getDate();  // 날짜
+var hours = today.getHours(); // 시
+var minutes = today.getMinutes();  // 분
+
+var xTitle = document.querySelector("#x-title");
+var xContent = document.querySelector("#x-content");
+var xCreateDate = (month + '/' + date + ' ' + hours + ':' + minutes);
+
+// 3) 서버에서 가져온 데이터를 화면에 출력한다.
+fetch(`/board/get?title=${title}`)
+.then(function(response){
+  return response.json();
+})
+.then(function(board) {
+
+  // 4) 연락처 상세 정보 화면 출력
+  xTitle.value = board.title;
+  xContent.value = board.content;
+  console.log(xTitle.value);
+  console.log(xContent.value);
+
+
+});
+
+  document.querySelector("#x-update-btn").onclick = function() {
+    if (xTitle.value == "" || xContent.value == "") {
+      window.alert("필수 입력 항목이 비어 있습니다.");
+      return;
+    };
+
+    fetch(`/board/update?title=${xTitle.value}&content=${xContent.value}&createDate=${xCreateDate}`)
+    .then(function(response){
+      return response.text();
+    })
+    .then(function(text){
+      console.log(text)
+      location.href = "index.html";
+    });
+  };
+
+document.querySelector("#x-cancel-btn").onclick = function () {
+    window.location.href = "index.html";
+  };
+
+document.querySelector("#x-delete-btn").onclick = function () {
+ fetch(`/board/delete?title=${title}`)
+ .then(function(response){
+   return response.json();
+ })
+ .then(function(result){
+   console.log(result);
+   location.href = "index.html";
+ });
+};
+
+</script>
+</body>
+</html>
