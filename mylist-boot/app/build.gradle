@@ -3,6 +3,8 @@ plugins {
   id 'io.spring.dependency-management' version '1.0.11.RELEASE'
   id 'java'
   id 'eclipse' // 이클립스 관련 작업을 수행할 수 있는 도구를 추가한다.
+  
+   id "io.freefair.lombok" version "6.4.1"
 }
 
 group = 'com.eomcs'
@@ -14,22 +16,24 @@ repositories {
 }
 
 dependencies {
-	
+
+implementation 'net.coobird:thumbnailator:0.4.17'
+
 	// Mariadb JDBC 드라이버
 	implementation 'org.mariadb.jdbc:mariadb-java-client:3.0.3'
-	
+
 	// Mybatis 프레임워크 (직접 구성)
 	//implementation 'org.mybatis:mybatis:3.5.9'
 	//implementation 'org.mybatis:mybatis-spring:2.0.7'
-	
+
 	// Mybatis 프레임워크 (스프링 스타터로 간접 구성)
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
-	
+
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
   implementation 'org.springframework.boot:spring-boot-starter-web'
   developmentOnly 'org.springframework.boot:spring-boot-devtools'
   testImplementation 'org.springframework.boot:spring-boot-starter-test'
-  
+
     // jackson 라이브러리
   implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.1'
 }
