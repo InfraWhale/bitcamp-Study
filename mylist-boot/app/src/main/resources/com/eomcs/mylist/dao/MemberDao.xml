@@ -9,17 +9,42 @@
 <mapper namespace="com.eomcs.mylist.dao.MemberDao">
 
   <!-- 테이블의 컬럼과 객체 필드를 연결한다. -->
-  <resultMap type="board" id="boardMap">
-    <id column="board_no" property="no"/>
-    <result column="title" property="title"/>
-    <result column="content" property="content"/>
-    <result column="created_date" property="createdDate"/>
-    <result column="view_count" property="viewCount"/>
+  <resultMap type="member" id="memberMap">
+    <id column="no" property="no"/>
+    <result column="name" property="name"/>
+    <result column="email" property="email"/>
+    <result column="regist_date" property="registDate"/>
   </resultMap>
 
   <insert id="insert" parameterType="Member">
     insert into ml_member(name,email,password) 
     values(#{name},#{email},password(#{password}))
   </insert>
+
+	<select id="findByEmailAndPassword" resultMap="memberMap">
+		select
+			no,
+			name,
+			email
+		from
+			ml_member
+		where
+			email=#{email} and password=password(#{password})
+	<!-- 
+	기존의 인코딩한 값과 비번을 비교해야하는 것
+	@Param으로 준 값이 들어간다.
+	-->
+	</select>
+	
+  <select id="findByEmail" resultMap="memberMap" parameterType="string">
+    select 
+      no,
+      name,
+      email
+    from 
+      ml_member
+    where
+      email=#{email}
+  </select>
 
 </mapper>
