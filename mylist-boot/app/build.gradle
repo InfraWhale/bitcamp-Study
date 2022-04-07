@@ -28,6 +28,8 @@ implementation 'net.coobird:thumbnailator:0.4.17'
 
 	// Mybatis 프레임워크 (스프링 스타터로 간접 구성)
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+	
+
 
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
   implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -47,3 +49,5 @@ eclipse {
         name = "mylist-boot"
     }
 }
+
+
