@@ -2,11 +2,7 @@ package com.eomcs.mylist.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.util.UUID;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -24,10 +20,6 @@ import net.coobird.thumbnailator.geometry.Positions;
 @RestController 
 public class BookController {
 
-  private static final Logger log = LoggerFactory.getLogger(BookController.class);
-
-  private static final String FAIL = null;
-
   @Autowired
   BookService bookService;
 
@@ -43,11 +35,8 @@ public class BookController {
       return bookService.add(book);
 
     } catch (Exception e) {
-      StringWriter out = new StringWriter();
-      e.printStackTrace(new PrintWriter(out));
-      log.error(out.toString());
-
-      return new ResultMap().setStatus(FAIL);
+      e.printStackTrace();
+      return "error!";
     }
   }
 
@@ -84,11 +73,25 @@ public class BookController {
       FileInputStream fileIn = new FileInputStream(downloadFile.getCanonicalPath()); // 다운로드 파일의 실제 경로를 지정하여 입력 스트림 준비
       InputStreamResource resource = new InputStreamResource(fileIn); // 입력 스트림을 입력 자원으로 포장
 
-      // HTTP 응답 헤더를 준비한다.
+      // HTTP 응답 헤더를 준비한다. (캐시를 막기 위한 헤더 설정)
       HttpHeaders header = new HttpHeaders();
       header.add("Cache-Control", "no-cache, no-store, must-revalidate");
+
+      //cache : 자주 사용하는 데이터나 값을 미리 복사해놓는 임시 장소
+      //no-cache : 모든 캐시를 쓰기 전에 서버에 이 캐시 써도 되는지 물어봐라
+      //no-store : 아무것도 캐싱하지 마라
+      //must-revalidate : 만료된 캐시만 서버에 확인을 받아라
+      // HTTP 1.1 스펙에 필요
+
       header.add("Pragma", "no-cache");
+
+      // "Pragma", "no-cache" : 중간에 캐시서버가 케싱하고 있는 컨텐츠를 제공하지 마라
+      // Cache-Control과 비슷한 역할을 하나 HTTP 1.0 스펙에 필요
+
       header.add("Expires", "0");
+
+      // "Expires", "0" : 유효기간 이미 만료되었음을 의미. 위 2개와 같은 이유로 사용 
+      // 역시 HTTP 1.0 스펙에 필요
 
       // 다운로드 파일명을 지정하고 싶다면 다음의 응답 헤더를 추가하라!
       // => 다운로드 파일을 지정하지 않으면 요청 URL이 파일명으로 사용된다.
@@ -111,6 +114,9 @@ public class BookController {
           .headers(header) // 응답 헤더를 설정한다.
           .contentLength(downloadFile.length()) // 응답할 파일의 크기를 설정한다.
           .contentType(MediaType.APPLICATION_OCTET_STREAM) // 응답 콘텐트의 MIME 타입을 설정한다.
+          // MIME 타입 : 클라이언트에게 전송된 문서의 다양성을 알려주기 위한 메커니즘
+          // type/subtype의 구조로 구성.
+          //application/octet-stream : 이진법 파일을 위한 기본값
           .body(resource); // 응답 콘텐트를 생성한 후 리턴한다.
 
     } catch (Exception e) {
@@ -122,14 +128,19 @@ public class BookController {
 
 
   private String saveFile(MultipartFile file) throws Exception {
+    // Multipart : 웹 클라이언트가 요청을 보낼 때, http 프로토콜의 바디 부분에 
+    // 데이터를 여러 부분으로 나눠서 보내는 것.
+
     if (file != null && file.getSize() > 0) { 
       // 파일을 저장할 때 사용할 파일명을 준비한다.
       String filename = UUID.randomUUID().toString();
 
       // 파일명의 확장자를 알아낸다.
       int dotIndex = file.getOriginalFilename().lastIndexOf(".");
+      // "."이 문자열에서 몇번째 문자인지 알아낸다
       if (dotIndex != -1) {
         filename += file.getOriginalFilename().substring(dotIndex);
+        //"."부터 마지막까지 문자열을 추출해 filename에 더한다.
       }
 
       // 파일을 지정된 폴더에 저장한다.

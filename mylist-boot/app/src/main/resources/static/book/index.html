@@ -45,7 +45,8 @@
         var tr = document.createElement("tr");
         tr.innerHTML = `<td>${book.no}</td>
         <td><a href="view.html?no=${book.no}">
-          <div class="x-photo-box"><img src="photo?filename=50x50_${book.photo}"></div>
+          <div class="x-photo-box"><img src="/book/photo?filename=50x50_${book.photo}"></div>
+        //  <div class="x-photo-box"><img src="photo?filename=50x50_${book.photo}"></div>
           ${book.title}
         </a></td>
         <td>${book.author}</td>
