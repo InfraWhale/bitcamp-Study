@@ -3,6 +3,7 @@ package com.eomcs.mylist.dao;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import com.eomcs.mylist.domain.Board;
 
 @Mapper  
@@ -16,7 +17,7 @@ public interface BoardDao {
 
   int countAll();
 
-  List<Board> findAll();
+  List<Board> findAll(@Param("rowCount") int rowCount, @Param("offset") int offset);
 
   int insert(Board board);
 
